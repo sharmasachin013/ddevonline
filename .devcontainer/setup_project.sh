@@ -12,7 +12,7 @@ wait_for_docker() {
 wait_for_docker
 
 # download images beforehand, optional
-ddev debug download-images
+#ddev debug download-images
 
 # avoid errors on rebuilds
 ddev poweroff
@@ -22,3 +22,7 @@ ddev start -y
 
 # further automated install / setup steps, e.g. 
 ddev composer install
+
+ddev export-db --file=backup.sql.gz
+
+ddev import-db --src=backup.sql.gz
